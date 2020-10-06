@@ -28,9 +28,9 @@ public class TestAbisCourseService {
 		@Test
 		public void testIfDayPriceOfCourse7900IsHigherThan400() {
 			System.out.println("dayprice " + courseService.findCourse(7900).getPricePerDay());
-			//assertThat(7, is(greaterThan(5))); //=> OK
-			//assertThat(500,greaterThan(400));  //=> OK
-			//double expected = courseService.findCourse(7900).getPricePerDay();
+			assertThat(7, is(greaterThan(5))); //=> OK
+			assertThat(500,greaterThan(400));  //=> OK
+			double expected = courseService.findCourse(7900).getPricePerDay();
 			//assertThat(expected,greaterThan(400)); 			
 		}
 }
