@@ -1,5 +1,7 @@
 package be.abis.exercise.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,15 +65,16 @@ public class CourseAppController {
 	
 	
 	
+	
+	
+	
 	@GetMapping("/personAdmin")
 	public String showPersonAdmin(Model model) {
-		//model.addAttribute("Login",new Login());
 		return "personAdmin";	
 	}
 	
 	@PostMapping("/personAdmin")
 	public String submitPersonAdmin(Model model) {
-		//model.addAttribute("Login",new Login());
 		return "personAdmin";	
 	}
 	
@@ -80,15 +83,30 @@ public class CourseAppController {
 	
 	@GetMapping("/searchCourses")
 	public String showSearchCourses(Model model) {
-		//model.addAttribute("Login",new Login());
 		return "searchCourses";	
 	}
 	
 	@PostMapping("/searchCourses")
 	public String submitSearchCourses(Model model) {
-		//model.addAttribute("Login",new Login());
 		return "searchCourses";	
 	}
+	
+	
+	@GetMapping("/listAllPersons")
+	public String showListAllPersons(Model model, ArrayList<Person> persons) {
+		ArrayList<Person> allPersons = trainingService.getAllPersons();
+		model.addAttribute("persons",allPersons);
+		return "listAllPersons";	
+	}
+	
+	@PostMapping("/listAllPersons")
+	public String submitListAllPersons(Model model) {
+		return "listAllPersons";	
+	}
+	
+	
+	
+	
 	
 	
 	
