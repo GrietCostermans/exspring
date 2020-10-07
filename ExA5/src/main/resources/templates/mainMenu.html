@@ -4,7 +4,9 @@
 <title>Welkom allemaal</title>
 </head>
 <body>
-	<h1><a href="searchCourses">Search for courses</a></h1> 
-	<h1><a href="personAdmin">Person Administration</a></h1>
+	
+	<h1>Welkom <span th:text="${person.firstName}"></span></h1>
+	<a href="searchCourses">Search for courses</a> 
+	<a href="personAdmin">Person Administration</a>
 </body>
 </html>

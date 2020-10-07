@@ -13,29 +13,52 @@ import be.abis.exercise.service.TrainingService;
 
 @Controller
 public class CourseAppController {
-		
+	
+	Person personLogged;
+	
 	@Autowired
 	TrainingService trainingService; 
 	
 	@GetMapping("/")
 	public String showLogin(Model model) {
-		//Course course7900 = trainingService.getCourseService().findCourse(7900);
-		model.addAttribute("Login",new Login());
+		// is gemakkelijker
+		Login defaultLogin = new Login("jdoe@abis.be","def456");
+		//model.addAttribute("Login",new Login());
+		model.addAttribute("Login",defaultLogin);
 		return "loginForm";	
 	}
 	
-	@PostMapping("/loginForm")
+	@PostMapping("/")
 	public String submitLogin(Model model, Login login) {
 		// zoek naam op in person file
-		//Person plogin = findperson();
-		Person personLogged = trainingService.findPerson(login.getEmailAddress(),login.getPassword());
+		personLogged = trainingService.findPerson(login.getEmailAddress(),login.getPassword());
 		
 		// als ok dan
 		//    return mainmenu
 		// als nok dan
 		//    return login
-		return "mainMenu";
+		return "redirect:/mainMenu";
 	}
+	
+		
+	@GetMapping("/mainMenu")
+	public String showMainMenu(Model model) {
+		model.addAttribute("person",personLogged);
+		return "mainMenu";	
+	}
+	
+	@PostMapping("/mainMenu")
+	public String submitMainMenu(Model model) {
+		//model.addAttribute("Login",new Login());
+		return "mainMenu";	
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("/personAdmin")
 	public String showPersonAdmin(Model model) {
@@ -48,6 +71,9 @@ public class CourseAppController {
 		//model.addAttribute("Login",new Login());
 		return "personAdmin";	
 	}
+	
+	
+	
 	
 	@GetMapping("/searchCourses")
 	public String showSearchCourses(Model model) {
