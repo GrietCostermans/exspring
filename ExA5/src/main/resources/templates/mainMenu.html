@@ -4,9 +4,14 @@
 <title>Welkom allemaal</title>
 </head>
 <body>
-	
 	<h1>Welkom <span th:text="${person.firstName}"></span></h1>
-	<a href="searchCourses">Search for courses</a> 
-	<a href="personAdmin">Person Administration</a>
+	<div>
+		<li><a href="searchCourses">Search for courses</a></li> 
+		<li><a href="personAdmin">Person Administration</a></li>
+	</div>	
+	
+	<form action="#" th:action="@{/Logout}" method="get">
+		<input type="submit" th:value="Logout"> </input>
+	</form>
 </body>
 </html>

@@ -39,8 +39,7 @@ public class CourseAppController {
 		//    return login
 		return "redirect:/mainMenu";
 	}
-	
-		
+			
 	@GetMapping("/mainMenu")
 	public String showMainMenu(Model model) {
 		model.addAttribute("person",personLogged);
@@ -51,6 +50,13 @@ public class CourseAppController {
 	public String submitMainMenu(Model model) {
 		//model.addAttribute("Login",new Login());
 		return "mainMenu";	
+	}
+	
+	
+	
+	@GetMapping("/Logout")
+	public String gotoLoginAgain(Model model) {
+		return "redirect:/";
 	}
 	
 	
