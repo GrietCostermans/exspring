@@ -92,18 +92,29 @@ public class CourseAppController {
 	}
 	
 	
-	@GetMapping("/listAllPersons")
+	@GetMapping("/listpersonbyID")
+	public String showListPersonByID(Model model, Person person ) {
+		model.addAttribute("Person",new Person());
+		return "listpersonbyID";	
+	}
+	
+	@PostMapping("/listpersonbyID")
+	public String submitlistPersonByID(Model model,Person person) {
+		model.addAttribute("Person",trainingService.findPerson(person.getPersonId()));
+		return "listpersonbyID";	
+	}
+	
+	@GetMapping("/listallpersons")
 	public String showListAllPersons(Model model, ArrayList<Person> persons) {
 		ArrayList<Person> allPersons = trainingService.getAllPersons();
 		model.addAttribute("persons",allPersons);
-		return "listAllPersons";	
+		return "listallpersons";	
 	}
 	
-	@PostMapping("/listAllPersons")
+	@PostMapping("/listallpersons")
 	public String submitListAllPersons(Model model) {
-		return "listAllPersons";	
+		return "listallpersons";	
 	}
-	
 	
 	
 	

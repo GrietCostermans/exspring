@@ -5,11 +5,14 @@
 </head>
 <body>
 	<h1>List all persons</h1>
-	<tr th:each="person: ${persons}">
+		
+	<table width="345" border="1" bgcolor="#F9A7B0">
+				
+		<tr th:each="person: ${persons}">
 		            <br>
 		            <td th:text="${person.firstName}"></td>
 					<td th:text="${person.lastName}"></td>
 					<td th:text="${person.language}"></td>
-	</tr>				
+		</tr>				
 </body>
 </html>
