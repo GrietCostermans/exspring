@@ -34,9 +34,32 @@ public class CourseAppController {
 		//    return mainmenu
 		// als nok dan
 		//    return login
-		return "course";
+		return "mainMenu";
 	}
 	
+	@GetMapping("/personAdmin")
+	public String showPersonAdmin(Model model) {
+		//model.addAttribute("Login",new Login());
+		return "personAdmin";	
+	}
+	
+	@PostMapping("/personAdmin")
+	public String submitPersonAdmin(Model model) {
+		//model.addAttribute("Login",new Login());
+		return "personAdmin";	
+	}
+	
+	@GetMapping("/searchCourses")
+	public String showSearchCourses(Model model) {
+		//model.addAttribute("Login",new Login());
+		return "searchCourses";	
+	}
+	
+	@PostMapping("/searchCourses")
+	public String submitSearchCourses(Model model) {
+		//model.addAttribute("Login",new Login());
+		return "searchCourses";	
+	}
 	
 	
 	
