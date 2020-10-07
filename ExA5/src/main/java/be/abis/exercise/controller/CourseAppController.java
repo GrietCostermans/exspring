@@ -23,7 +23,7 @@ public class CourseAppController {
 		model.addAttribute("Login",new Login());
 		return "loginForm";	
 	}
-	/*
+	
 	@PostMapping("/loginForm")
 	public String submitLogin(Model model, Login login) {
 		// zoek naam op in person file
@@ -34,8 +34,8 @@ public class CourseAppController {
 		//    return mainmenu
 		// als nok dan
 		//    return login
-		return "loginForm";
-	}*/
+		return "course";
+	}
 	
 	
 	

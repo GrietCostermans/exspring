@@ -4,7 +4,7 @@
 	<title>Login</title>
 </head>
 <body>
-<form action='#' method="post" th:action="@{/loginForm}" th:object="${Login}"></form>
+<form action='#' method="post" th:action="@{/loginForm}" th:object="${Login}">
 		<table width="345" border="1" bgcolor="#F9A7B0">
 			<tr>
 				<th height="34">Enter your emailadress</th>
@@ -18,5 +18,6 @@
 				<th height="39" colspan="2"><input type="submit" value="SignIn"/>
 			</tr>
 		</table>
+</form>		
 </body>		
 </html>
