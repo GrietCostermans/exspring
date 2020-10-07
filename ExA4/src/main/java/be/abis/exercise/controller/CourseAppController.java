@@ -18,7 +18,10 @@ public class CourseAppController {
 	public String showTitle7900(Model model) {
 		
 		Course course7900 = trainingService.getCourseService().findCourse(7900);
-		model.addAttribute("course",course7900.getLongTitle());
+		model.addAttribute("course",course7900);
+		//String title = trainingService.getCourseService().findCourse(7900).getShortTitle();
+		//model.addAttribute("course",title);
+		
 		return "course";	
 	}
 }

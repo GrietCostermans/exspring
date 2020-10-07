@@ -3,6 +3,8 @@ package be.abis.exercise.repository;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Repository;
+
 import be.abis.exercise.model.Person;
 
 public interface PersonRepository {
