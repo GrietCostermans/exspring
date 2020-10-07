@@ -4,11 +4,11 @@
 	<title>Login</title>
 </head>
 <body>
-<form action='#' method="post" th:action="@{/loginForm}" th:object="${person}"></form>
+<form action='#' method="post" th:action="@{/loginForm}" th:object="${Login}"></form>
 		<table width="345" border="1" bgcolor="#F9A7B0">
 			<tr>
 				<th height="34">Enter your emailadress</th>
-				<td><input type="text" th:field="*{emailadress}"/></td>
+				<td><input type="text" th:field="*{emailAddress}"/></td>
 			</tr>
 			<tr>
 				<th height="33">Enter your password</th>
