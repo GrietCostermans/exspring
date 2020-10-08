@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>List all courses</title>
+</head>
+<body>
+	<h1>List all courses</h1>
+	<table border="1" bgcolor="#F9A7B0">
+				
+		<tr th:each="course: ${courses}">
+		            <td th:text="${course.courseId}"></td>
+		            <td th:text="${course.shortTitle}"></td>
+					<td th:text="${course.longTitle}"></td>
+					<td th:text="${course.numberOfDays}"></td>
+					<td th:text="${course.pricePerDay}"></td>
+		</tr>
+	</table>					
+</body>
+</html>

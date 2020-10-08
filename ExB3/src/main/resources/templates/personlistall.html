@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>List all persons</title>
+</head>
+<body>
+	<h1>List all persons</h1>
+		
+	<table width="345" border="1" bgcolor="#F9A7B0">
+				
+		<tr th:each="person: ${persons}">
+		            <br>
+		            <td th:text="${person.firstName}"></td>
+					<td th:text="${person.lastName}"></td>
+					<td th:text="${person.language}"></td>
+		</tr>				
+</body>
+</html>
