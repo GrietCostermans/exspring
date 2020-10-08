@@ -23,6 +23,9 @@
 	<p th:text="${personfound.password}"></p>
 	<p th:text="${personfound.language}"></p>
 		
-</form>		
+</form>	
+<form action="#" th:action="@{/gotowelcome}" method="get">
+		<input type="submit" th:value="Back"> </input>
+</form>			
 </body>
 </html>

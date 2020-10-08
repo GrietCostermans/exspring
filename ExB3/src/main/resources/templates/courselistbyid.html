@@ -22,6 +22,9 @@
 	<p th:text="${coursefound.numberOfDays}"></p>
 	<p th:text="${coursefound.pricePerDay}"></p>
 		
-</form>		
+</form>	
+<form action="#" th:action="@{/gotowelcome}" method="get">
+		<input type="submit" th:value="Back"> </input>
+</form>			
 </body>
 </html>

@@ -28,7 +28,10 @@ public class CourseAppController {
 	
 	@GetMapping("/")
 	public String showLogin(Model model) {
-		model.addAttribute("Login",new Login());
+		// is gemakkelijker
+		Login defaultLogin = new Login("jdoe@abis.be","def456");
+		//model.addAttribute("Login",new Login());
+		model.addAttribute("login",defaultLogin);
 		return "login";	
 	}
 	
@@ -54,6 +57,11 @@ public class CourseAppController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/gotowelcome")
+	public String gotowelcome(Model model) {
+		return "redirect:/welcome";
+	}
+		
 	@GetMapping("/personadmin")
 	public String showPersonAdmin(Model model) {
 		return "personadmin";	
@@ -124,7 +132,6 @@ public class CourseAppController {
 			e.printStackTrace();
 			return "personaddnew";
 		}
-		//return "personaddnew";
 	}
 	
 	@GetMapping("/persondelete")
