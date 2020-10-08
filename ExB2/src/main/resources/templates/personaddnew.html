@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add new person</title>
+</head>
+<body>
+<h1>Add new person</h1>
+<form action='#' method="post" th:action="@{/personaddnew}" th:object="${person}">
+		<table width="345" border="1" bgcolor="#10E467">
+			<tr>
+				<th height="34">First Name</th>
+				<td><input type="text" th:field="*{firstName}"/></td>
+			</tr>
+			<tr>
+				<th height="35">Last Name</th>
+				<td><input type="text" th:field="*{lastName}"/></td>
+			</tr>
+			<tr>
+				<th height="36">Age</th>
+				<td><input type="text" th:field="*{age}"/></td>
+			</tr>
+			<tr>
+				<th height="37">Emailaddress</th>
+				<td><input type="text" th:field="*{emailAddress}"/></td>
+			</tr>
+			<tr>
+				<th height="38">Password</th>
+				<td><input type="text" th:field="*{password}"/></td>
+			</tr>
+			<tr>
+				<th height="39">Language</th>
+				<td><select th:field="*{language}">
+					<option th:value="NL" th:text="Nederlands"></option>
+					<option th:value="FR" th:text="Frans"></option>
+					<option th:value="EN" th:text="Engels"></option>
+				</select></td>
+			</tr>
+			<tr>
+				<th height="40">Company Name</th>
+				<td><input type="text" th:field="*{company.name}"/></td>
+			</tr>
+			<tr>
+				<th height="41">Company telephoneNumber</th>
+				<td><input type="text" th:field="*{company.telephoneNumber}"/></td>
+			</tr>
+			<tr>
+				<th height="42">Company vatnr</th>
+				<td><input type="text" th:field="*{company.vatNr}"/></td>
+			</tr>
+			<tr>
+				<th height="43">Company street</th>
+				<td><input type="text" th:field="*{company.address.street}"/></td>
+			</tr>
+			<tr>
+				<th height="45">Company street number</th>
+				<td><input type="text" th:field="*{company.address.nr}"/></td>
+			</tr>
+					
+			<tr>
+				<th height="44">Company town</th>
+				<td><input type="text" th:field="*{company.address.town}"/></td>
+			</tr>
+			<tr>
+				<th height="45">Company zipcode</th>
+				<td><input type="text" th:field="*{company.address.zipcode}"/></td>
+			</tr>
+			
+			<tr>
+				</br>
+				<th height="46" colspan="2"><input type="submit" value="Submit"/>
+			</tr>
+		</table>
+</form>		
+</body>
+</html>

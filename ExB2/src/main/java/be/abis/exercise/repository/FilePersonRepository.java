@@ -88,7 +88,6 @@ public class FilePersonRepository implements PersonRepository {
 		}
 
 		this.readFile();
-		// System.out.println("persons in PersonList" + allPersons);
 		Iterator<Person> iter = allPersons.iterator();
 
 		while (iter.hasNext()) {
@@ -108,11 +107,13 @@ public class FilePersonRepository implements PersonRepository {
 
 	@Override
 	public void addPerson(Person p) throws IOException {
+		int personindex=0;
 		boolean b = false;
 		this.readFile();
 		Iterator<Person> iter = allPersons.iterator();
 		PrintWriter pw = new PrintWriter(new FileWriter(fileLoc, true));
 		while (iter.hasNext()) {
+			personindex++;
 			Person pers = iter.next();
 			if (pers.getEmailAddress().equalsIgnoreCase(p.getEmailAddress())) {
 				throw new IOException("you were already registered, login please");
@@ -121,9 +122,9 @@ public class FilePersonRepository implements PersonRepository {
 			}
 		}
 		if (b) {
+			personindex++;
+			p.setPersonId(personindex);
 			StringBuilder sb = this.parsePerson(p);
-			// System.out.println(sb);
-
 			pw.append("\n" + sb);
 			allPersons.add(p);
 

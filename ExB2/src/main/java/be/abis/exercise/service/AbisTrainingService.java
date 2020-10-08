@@ -66,7 +66,7 @@ public class AbisTrainingService implements TrainingService {
 
 	@Override
 	public void changePassword(Person p, String newPswd) throws IOException {
-		// TODO Auto-generated method stub
+		personRepository.changePassword(p, newPswd);	
 		
 	}
 
