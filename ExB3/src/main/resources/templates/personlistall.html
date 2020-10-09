@@ -4,18 +4,21 @@
 <title>List all persons</title>
 </head>
 <body>
+<form action='#' method="post" th:action="@{/personlistall}" th:object="${person}">
 	<h1>List all persons</h1>
 		
 	<table width="345" border="1" bgcolor="#F9A7B0">
 				
 		<tr th:each="person: ${persons}">
-		            <br>
+					<td th:text="${person.personId}"></td>
 		            <td th:text="${person.firstName}"></td>
 					<td th:text="${person.lastName}"></td>
 					<td th:text="${person.language}"></td>
-		</tr>				
-</body>
-<form action="#" th:action="@{/gotowelcome}" method="get">
+		</tr>	
+</table>
+</form>			
+<form action="#" th:action="@{/gotopersonadmin}" method="get">
 		<input type="submit" th:value="Back"> </input>
-</form>		
+</form>
+</body>
 </html>

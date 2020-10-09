@@ -15,16 +15,14 @@
 				<th height="39" colspan="2"><input type="submit" value="Submit"/>
 			</tr>
 		</table>
-	
-	<p th:text="${personfound.firstName}"></p>
-	<p th:text="${personfound.lastName}"></p>
-	<p th:text="${personfound.age}"></p>
-	<p th:text="${personfound.emailAddress}"></p>
-	<p th:text="${personfound.password}"></p>
-	<p th:text="${personfound.language}"></p>
-		
+	<span th:text="${personfound.firstName}" >;</span>
+	<span th:text="${personfound.lastName}">;</span>
+	<span th:text="${personfound.age}">;</span>
+	<span th:text="${personfound.emailAddress}">;</span>
+	<span th:text="${personfound.password}">;</span>
+	<span th:text="${personfound.language}">;</span>
 </form>	
-<form action="#" th:action="@{/gotowelcome}" method="get">
+<form action="#" th:action="@{/gotopersonadmin}" method="get">
 		<input type="submit" th:value="Back"> </input>
 </form>			
 </body>

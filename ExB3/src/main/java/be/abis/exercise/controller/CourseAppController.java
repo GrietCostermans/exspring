@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import be.abis.exercise.model.Course;
 import be.abis.exercise.model.Login;
+import be.abis.exercise.model.Message;
 import be.abis.exercise.model.Person;
 import be.abis.exercise.service.CourseService;
 import be.abis.exercise.service.TrainingService;
@@ -20,6 +21,7 @@ import be.abis.exercise.service.TrainingService;
 public class CourseAppController {
 	
 	Person personLogged;
+	String shownMessage;
 	
 	@Autowired
 	TrainingService trainingService; 
@@ -61,7 +63,13 @@ public class CourseAppController {
 	public String gotowelcome(Model model) {
 		return "redirect:/welcome";
 	}
-		
+	
+	@GetMapping("/gotopersonadmin")
+	public String gotopersonadmin(Model model) {
+		return "redirect:/personadmin";
+	}
+	
+	
 	@GetMapping("/personadmin")
 	public String showPersonAdmin(Model model) {
 		return "personadmin";	
@@ -98,28 +106,33 @@ public class CourseAppController {
 		return "personlistall";	
 	}
 	
-		@GetMapping("/personchangepassword")
+	@GetMapping("/personchangepassword")
 	public String showchangepassword(Model model) {
 		model.addAttribute("login",new Login ());
+		shownMessage = "";
 		return "personchangepassword";	
 	}
 	
 	@PostMapping("/personchangepassword")
 	public String submitchangepassword(Model model,Login login) {
-		
 		try {
 			trainingService.changePassword(personLogged, login.getPassword()) ;
+			shownMessage = "Password Changed";
+			
 		} catch (IOException e) {
 			e.printStackTrace();
+			shownMessage = "Houston you have a problem";
 		}
+		model.addAttribute("outputmessage",shownMessage);
 		personLogged.setPassword(login.getPassword());
-		model.addAttribute("login",personLogged);		
+		model.addAttribute("login",new Login());		
 		return "personchangepassword";	
 	}
 		
 	@GetMapping("/personaddnew")
 	public String showpersonaddnew(Model model, Person person) {
 		model.addAttribute("Login",new Person());
+		model.addAttribute("outputmessage","");
 		return "personaddnew";	
 	}
 	
@@ -127,11 +140,12 @@ public class CourseAppController {
 	public String submitpersonaddnew(Model model, Person person) {
 		try {
 			trainingService.addPerson(person);
-			return "redirect:/personadmin";
+			shownMessage =  "Person added nr : " + person.getPersonId(); 
 		} catch (IOException e) {
 			e.printStackTrace();
-			return "personaddnew";
 		}
+		model.addAttribute("outputmessage",shownMessage);	
+		return "personaddnew";
 	}
 	
 	@GetMapping("/persondelete")
@@ -145,7 +159,9 @@ public class CourseAppController {
 		int personToDelete = person.getPersonId();
 		trainingService.deletePerson(personToDelete);
 		model.addAttribute("person",person);
-		return "redirect:/personadmin";	
+		shownMessage =  "Person deleted nr : " + person.getPersonId(); 
+		model.addAttribute("outputmessage",shownMessage);	
+		return "persondelete";	
 	}
 	
 	

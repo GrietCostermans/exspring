@@ -174,7 +174,6 @@ public class FilePersonRepository implements PersonRepository {
 				.append((nr != 0 ? nr : null) + ";").append(p.getCompany().getAddress().getZipcode() + ";")
 				.append(p.getCompany().getAddress().getTown());
 
-		System.out.println(sb);
 		return sb;
 	}
 
