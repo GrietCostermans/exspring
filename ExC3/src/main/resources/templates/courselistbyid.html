@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Find course by ID</title>
+</head>
+<body>
+<form action='#' method="post" th:action="@{/courselistbyid}" th:object="${course}">
+		<table width="345" border="1" bgcolor="#F9A7B0">
+			<tr>
+				<th height="34">Enter Course ID</th>
+				<td><input type="text" th:field="*{courseId}"/></td>
+			</tr>
+			<tr>
+				</br>
+				<th height="39" colspan="2"><input type="submit" value="Submit"/>
+			</tr>
+		</table>
+	
+	<p th:text="${coursefound.courseId}"></p>
+	<p th:text="${coursefound.shortTitle}"></p>
+	<p th:text="${coursefound.longTitle}"></p>
+	<p th:text="${coursefound.numberOfDays}"></p>
+	<p th:text="${coursefound.pricePerDay}"></p>
+		
+</form>	
+<form action="#" th:action="@{/gotowelcome}" method="get">
+		<input type="submit" th:value="Back"> </input>
+</form>			
+</body>
+</html>

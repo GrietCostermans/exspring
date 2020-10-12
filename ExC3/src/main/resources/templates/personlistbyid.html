@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Find person by ID</title>
+</head>
+<body>
+<form action='#' method="post" th:action="@{/personlistbyid}" th:object="${person}">
+		<table width="345" border="1" bgcolor="#F9A7B0">
+			<tr>
+				<th height="34">Enter person ID</th>
+				<td><input type="text" th:field="*{personId}"/></td>
+			</tr>
+			<tr>
+				</br>
+				<th height="39" colspan="2"><input type="submit" value="Submit"/>
+			</tr>
+		</table>
+	<span th:text="${personfound.firstName}" ></span>
+	<span th:text="${personfound.lastName}"></span>
+	<span th:text="${personfound.age}"></span>
+	<span th:text="${personfound.emailAddress}"></span>
+	<span th:text="${personfound.password}"></span>
+	<span th:text="${personfound.language}"></span>
+</form>	
+<form action="#" th:action="@{/gotopersonadmin}" method="get">
+		<input type="submit" th:value="Back"> </input>
+</form>			
+</body>
+</html>
