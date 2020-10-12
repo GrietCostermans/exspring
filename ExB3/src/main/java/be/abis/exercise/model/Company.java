@@ -1,5 +1,7 @@
 package be.abis.exercise.model;
 
+import javax.validation.constraints.NotBlank;
+
 public class Company{
 	
 	private String name;

@@ -13,9 +13,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import be.abis.exercise.model.Address;
+import be.abis.exercise.model.Company;
 import be.abis.exercise.model.Course;
 import be.abis.exercise.model.Login;
-import be.abis.exercise.model.Message;
 import be.abis.exercise.model.Person;
 import be.abis.exercise.service.CourseService;
 import be.abis.exercise.service.TrainingService;
@@ -140,7 +141,11 @@ public class CourseAppController {
 	}
 	
 	@PostMapping("/personaddnew")
-	public String submitpersonaddnew(Model model, @Valid Person person, BindingResult bindingResult ) {
+	public String submitpersonaddnew(Model model,@Valid Person person, BindingResult bindingResult ) {
+		if  (bindingResult.hasErrors()) {
+			return "personaddnew";
+		}
+		
 		try {
 			trainingService.addPerson(person);
 			shownMessage =  "Person added nr : " + person.getPersonId(); 

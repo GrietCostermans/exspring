@@ -1,5 +1,6 @@
 package be.abis.exercise.model;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -15,6 +16,7 @@ public class Person {
 	@NotBlank(message="Password is required")
 	private String password;
 	private String language;
+	@Valid
 	private Company company;
 	
 	public int getPersonId() {

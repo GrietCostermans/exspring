@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import be.abis.exercise.model.Course;
 import be.abis.exercise.model.Login;
-import be.abis.exercise.model.Message;
 import be.abis.exercise.model.Person;
 import be.abis.exercise.service.CourseService;
 import be.abis.exercise.service.TrainingService;
