@@ -213,7 +213,8 @@ public class CourseAppController {
 		personLogged = trainingService.findPerson(login.getEmailAddress(),login.getPassword());
 		System.out.println("personLogged "+personLogged );
 		if  (personLogged == null) {
-			bindingResult.rejectValue("emailAddress", "", "This emailaddress is unknown in our db");
+			bindingResult.reject("emailAddress", "This emailaddress is unknown in our db");
+			//result.reject("email", "Login failed, try again");
 			System.out.println("bindingResult.rejectValue");
             return "login" ;
 		} else { 
