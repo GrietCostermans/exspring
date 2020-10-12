@@ -33,11 +33,11 @@ public class CourseAppController {
 	CourseService courseService;
 	
 	@GetMapping("/")
-	public String showLogin(Model model) {
+	public String showLogin(Model model, Login login) {
 		// is gemakkelijker
-		Login defaultLogin = new Login("jdoe@abis.be","def456");
-		//model.addAttribute("Login",new Login());
-		model.addAttribute("login",defaultLogin);
+		//Login defaultLogin = new Login("jdoe@abis.be","def456");
+		model.addAttribute("Login",new Login());
+		//model.addAttribute("login",defaultLogin);
 		return "login";	
 	}
 	
@@ -210,17 +210,19 @@ public class CourseAppController {
 	@PostMapping("/")
 	public String submitLogin(Model model, Login login, BindingResult bindingResult) {
 		
-		System.out.println("submitLogin");
 		personLogged = trainingService.findPerson(login.getEmailAddress(),login.getPassword());
 		System.out.println("personLogged "+personLogged );
 		if  (personLogged == null) {
 			bindingResult.rejectValue("emailAddress", "", "This emailaddress is unknown in our db");
+			System.out.println("bindingResult.rejectValue");
             return "login" ;
+		} else { 
+			return "redirect:/welcome";
+			
 		}
-		return "redirect:/welcome";
 	}
 	
-	
+	/*
 	private boolean validateEmailAddress(Login valLogin) {
 		Person personToValidate = trainingService.findPerson(valLogin.getEmailAddress(), valLogin.getPassword());
 		System.out.println("personToValidate.getEmailAddress()"+ personToValidate.getEmailAddress());
@@ -229,7 +231,7 @@ public class CourseAppController {
 			}
 		return true;
 	}
-	
+	*/
 	
 	
 }
