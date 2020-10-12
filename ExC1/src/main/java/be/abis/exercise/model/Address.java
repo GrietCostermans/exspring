@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 public class Address {
 	
 	private String street;
-	@NotBlank(message="Town is required")
+	@NotBlank(message="Town is Required")
 	private String town;
 	private String zipcode;
 	private int nr;

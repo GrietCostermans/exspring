@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add new person</title>
+</head>
+<body>
+<h1>Add new person</h1>
+<form action='#' method="post" th:action="@{/personaddnew}" th:object="${person}">
+		<table width="345" border="1" bgcolor="#10E467">
+			<tr>
+				<th>First Name</th>
+				<td><input type="text" th:field="*{firstName}"/></td>
+				<td><span style="color:red" th:errors="*{firstName}"></span></td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td><input type="text" th:field="*{lastName}"/></td>
+			</tr>
+			<tr>
+				<th>Age</th>
+				<td><input type="text" th:field="*{age}"/></td>
+			</tr>
+			<tr>
+				<th>Emailaddress</th>
+				<td><input type="text" th:field="*{emailAddress}"/></td>
+				<td><span style="color:red" th:errors="*{emailAddress}"></span></td>
+			</tr>
+			<tr>
+				<th>Password</th>
+				<td><input type="password" th:field="*{password}"/></td>
+				<td><span style="color:red" th:errors="*{password}"></span></td>
+			</tr>
+			<tr>
+				<th>Language</th>
+				<td><select th:field="*{language}">
+					<option th:value="NL" th:text="Nederlands"></option>
+					<option th:value="FR" th:text="Frans"></option>
+					<option th:value="EN" th:text="Engels"></option>
+				</select></td>
+			</tr>
+			<tr>
+				<th>Company Name</th>
+				<td><input type="text" th:field="*{company.name}"/></td>
+				<td><span style="color:red" th:errors="*{company.name}"></span></td>
+			</tr>
+			<tr>
+				<th>Company telephoneNumber</th>
+				<td><input type="text" th:field="*{company.telephoneNumber}"/></td>
+			</tr>
+			<tr>
+				<th>Company vatnr</th>
+				<td><input type="text" th:field="*{company.vatNr}"/></td>
+			</tr>
+			<tr>
+				<th>Company street</th>
+				<td><input type="text" th:field="*{company.address.street}"/></td>
+			</tr>
+			<tr>
+				<th>Company street number</th>
+				<td><input type="text" th:field="*{company.address.nr}"/></td>
+			</tr>
+			<tr>
+				<th>Company zipcode</th>
+				<td><input type="text" th:field="*{company.address.zipcode}"/></td>
+			</tr>		
+			<tr>
+				<th>Company town</th>
+				<td><input type="text" th:field="*{company.address.town}"/></td>
+				<td><span style="color:red" th:errors="*{company.address.town}"></span></td>
+			</tr>
+			<tr>
+				</br>
+				<th colspan="2"><input type="submit" value="Submit"/>
+			</tr>
+		</table>
+</form>		
+<span th:text="${outputmessage}" />
+<form action="#" th:action="@{/gotopersonadmin}" method="get">
+		<input type="submit" th:value="Back"> </input>
+</form>
+</body>
+</html>
